@@ -1,3 +1,27 @@
 body {
     font-family: sans-serif;
+
+}
+nav {
+    height: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+ul {
+    padding-top: 10px;
+    padding-bottom: 10px
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+ul.navList li {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 10px;
+    float: left;
+}
+
+#content {
+    clear: both;
 }
