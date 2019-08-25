@@ -1,7 +1,6 @@
 body {
     font-family: sans-serif;
     background: #efefef;
-
 }
 
 .flex {
@@ -19,6 +18,7 @@ body {
     height: 700px;
     width: 500px;
 }
+
 .form-field {
     display: block;
     background: #e1e1e1;
@@ -29,6 +29,7 @@ body {
     width: 100%;
     margin: 0 0 15px 0;
 }
+
 .form-textarea {
     display: block;
     background: #e1e1e1;
@@ -39,6 +40,7 @@ body {
     width: 100%;
     margin: 0 0 15px 0;
 }
+
 .form-btn {
     display: block;
 }
@@ -46,9 +48,4 @@ body {
 .form-label {
     display:block;
     margin: 0 0 15px 0;
-}
-
-
-.error {
-    color: red;
 }

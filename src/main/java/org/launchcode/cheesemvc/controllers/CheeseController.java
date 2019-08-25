@@ -1,5 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
+import org.launchcode.cheesemvc.models.Cheese;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +16,11 @@ import java.util.Map;
 @RequestMapping(value = "cheese")
 public class CheeseController {
 
-    static HashMap<String, String> cheeses = new HashMap<>();
+    static ArrayList<Cheese> cheeses = new ArrayList<>();
 
-// request path: cheese/
+    // static HashMap<String, String> cheeses = new HashMap<>();
+
+    // request path: cheese/
     @RequestMapping(value = "")
     public String index(Model model) {
 
@@ -38,15 +41,17 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String cheeseName, @RequestParam String description) {
 
-        cheeses.put(cheeseName, description);
+        Cheese cheese = new Cheese(cheeseName, description);
+        cheeses.add(cheese);
+        //cheeses.put(cheeseName, description);
 
-            //redirect to /cheese
+        //redirect to /cheese
         return "redirect:";
     }
 
 
     @RequestMapping(value = "remove", method = RequestMethod.GET)
-    public String  processRemoveCheeseForm(Model model) {
+    public String processRemoveCheeseForm(Model model) {
         model.addAttribute("title", "Remove Cheese");
         model.addAttribute("cheeses", this.cheeses);
         return "cheese/remove";
@@ -54,11 +59,19 @@ public class CheeseController {
 
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheeses) {
-        for (String cheese : cheeses) {
-            this.cheeses.remove(cheese);
-        }
+    public String processRemoveCheeseForm(@RequestParam int cheeseIndex) {
+        this.cheeses.remove(cheeseIndex);
 
         return "redirect:";
     }
 }
+
+
+
+    /*public String processRemoveCheeseForm(@RequestParam ArrayList<String> cheeses) {
+        for (String cheese : cheeses) {
+            for (Cheese cheeze : this.cheeses) {
+                if (cheese.equals(cheeze.getName())) {
+                    this.cheeses.remove(cheeze); */
+
+
