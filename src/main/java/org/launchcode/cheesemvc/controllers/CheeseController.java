@@ -12,9 +12,6 @@ import java.util.ArrayList;
 @RequestMapping(value = "cheese")
 public class CheeseController {
 
-
-    // static HashMap<String, String> cheeses = new HashMap<>();
-
     // request path: cheese/
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -34,7 +31,7 @@ public class CheeseController {
         CheeseData.add(newCheese);
         return "redirect:";
     }
-
+    //Remove cheese
     @RequestMapping(value = "remove", method = RequestMethod.GET)
     public String displayRemoveCheeseForm(Model model) {
         model.addAttribute("title", "Remove Cheese");
@@ -50,7 +47,7 @@ public class CheeseController {
         return "redirect:";
     }
 
-    //lesson 8 prep: stub out two handler methods in CheeseController
+    //lesson 8 prep: stub out two handler methods to edit cheese in CheeseController
     @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.GET)
     public String displayEditForm(Model model, @PathVariable int cheeseId) {
         Cheese cheese = CheeseData.getById(cheeseId);
