@@ -5,13 +5,13 @@ import javax.validation.constraints.Size;
 
 public class User {
     @NotNull
-    @Size(min=3, max=15)
+    @Size(min=3, max=15, message = "Username must be 3-15 characters")
     private String username;
     @NotNull
-    @Size(min=3, max=15)
+    @Size(min=3, max=15, message = "Please enter valid email address")
     private String email;
     @NotNull
-    @Size(min=3, max=35)
+    @Size(min=3, max=35, message = "Password cannot be blank")
     private String password;
 
 
