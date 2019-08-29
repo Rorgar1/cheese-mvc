@@ -1,5 +1,7 @@
 package org.launchcode.cheesemvc.models;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,6 +15,10 @@ public class Cheese {
     private String description;
 
     private CheeseType type;
+
+    @NotNull
+    @Range(min = 1, max = 5, message = "Please rate from 1-5, 5 being the most delicious")
+    private int rating;
 
     private int cheeseId;
     private static int nextId = 1;
@@ -57,6 +63,14 @@ public class Cheese {
 
     public void setType(CheeseType type) {
         this.type = type;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
 
