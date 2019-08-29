@@ -1,19 +1,18 @@
 package org.launchcode.cheesemvc.models;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 public class User {
-    @NotNull
-    @Size(min=3, max=15, message = "Username must be 3-15 characters")
     private String username;
-    @NotNull
-    @Size(min=3, max=15, message = "Please enter valid email address")
     private String email;
-    @NotNull
-    @Size(min=3, max=35, message = "Password cannot be blank")
     private String password;
 
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;
@@ -38,6 +37,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
 }
