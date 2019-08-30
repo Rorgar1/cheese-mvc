@@ -1,6 +1,5 @@
 package org.launchcode.cheesemvc.controllers;
 
-
 import org.launchcode.cheesemvc.models.User;
 import org.launchcode.cheesemvc.models.UserData;
 import org.springframework.stereotype.Controller;
@@ -36,6 +35,7 @@ public class UserController {
        UserData.addUser(user);
        return "redirect:";
         }
+
     @RequestMapping(value = "")
     public static String index(Model model) {
         List<User> users = UserData.getUsers();

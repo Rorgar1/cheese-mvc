@@ -4,7 +4,7 @@
 
 <body>
 <div class="container body-content" th:each="user : ${users}">
-    <h1 th:text="${'Hello, ' + user.getUsername() + '!'}"></h1>
+    <h1 th:text="${'Hello, ' + user.getUsername() + '!'}">Welcome User!</h1>
 </div>
 </body>
 </html>

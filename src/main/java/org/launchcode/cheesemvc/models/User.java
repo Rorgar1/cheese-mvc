@@ -16,7 +16,7 @@ public class User {
     private String email;
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min = 6, max = 15)
     private String password;
 
     @NotNull(message = "Passwords do not match")

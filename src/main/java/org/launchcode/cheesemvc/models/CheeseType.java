@@ -2,9 +2,9 @@ package org.launchcode.cheesemvc.models;
 
 public enum CheeseType {
 
-    HARD ("Hard"),
-    SOFT ("Soft"),
-    FAKE ("Fake");
+    HARD ("hard"),
+    SOFT ("soft"),
+    FAKE ("fake");
 
     private final String name;
 

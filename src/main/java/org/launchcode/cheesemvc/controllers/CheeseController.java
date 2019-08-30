@@ -68,10 +68,11 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.POST)
-    public String processEditForm(int cheeseId, String name, String description) {
+    public String processEditForm(int cheeseId, String name, String description, CheeseType type) {
         Cheese cheese = CheeseData.getById(cheeseId);
         cheese.setDescription(description);
         cheese.setName(name);
+        cheese.setType(type);
 
         return "redirect:/cheese";
     }
