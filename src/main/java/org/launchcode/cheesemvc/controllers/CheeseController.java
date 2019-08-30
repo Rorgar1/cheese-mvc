@@ -60,10 +60,10 @@ public class CheeseController {
     @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.GET)
     public String displayEditForm(Model model, @PathVariable int cheeseId) {
         Cheese cheese = CheeseData.getById(cheeseId);
-
         model.addAttribute("cheese", CheeseData.getById(cheeseId));
         model.addAttribute("title", "Edit Cheese:  " +
                 cheese.getName() + " ( id =  " + cheese.getCheeseId() + " ) ");
+        model.addAttribute("cheeseTypes", CheeseType.values());
         return "cheese/edit";
     }
 
