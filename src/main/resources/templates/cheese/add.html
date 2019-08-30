@@ -26,6 +26,7 @@
                     th:text="${cheeseType.name}"
                     th:value="${cheeseType}"></option>
         </select>
+        <span th:errors="*{type}" class="error" style="color: red;"></span>
     </div>
 
     <div class="form-group">

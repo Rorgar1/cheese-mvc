@@ -61,9 +61,10 @@ public class CheeseController {
     public String displayEditForm(Model model, @PathVariable int cheeseId) {
         Cheese cheese = CheeseData.getById(cheeseId);
         model.addAttribute("cheese", CheeseData.getById(cheeseId));
+        model.addAttribute("cheeseTypes", CheeseType.values());
         model.addAttribute("title", "Edit Cheese:  " +
                 cheese.getName() + " ( id =  " + cheese.getCheeseId() + " ) ");
-        model.addAttribute("cheeseTypes", CheeseType.values());
+
         return "cheese/edit";
     }
 

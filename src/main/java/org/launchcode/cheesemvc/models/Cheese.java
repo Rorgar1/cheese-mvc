@@ -14,14 +14,14 @@ public class Cheese {
     @Size(min=1, message = "Description must not be empty")
     private String description;
 
-    private CheeseType type;
-
     @NotNull
     @Range(min = 1, max = 5, message = "Please rate from 1-5, 5 being the most delicious")
     private int rating;
 
     private int cheeseId;
     private static int nextId = 1;
+
+    private CheeseType type = CheeseType.HARD;
 
     public Cheese(String name, String description) {
         this();
