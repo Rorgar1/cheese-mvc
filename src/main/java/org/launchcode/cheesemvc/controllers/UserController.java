@@ -1,7 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
 import org.launchcode.cheesemvc.models.User;
-import org.launchcode.cheesemvc.models.UserData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,33 +13,30 @@ import java.util.List;
 
 @Controller
 @RequestMapping("user")
-
 public class UserController {
 
-    @RequestMapping(value="/add")
+    @RequestMapping(value="add", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("title", "Add User");
-        model.addAttribute(new User());
+        model.addAttribute("user", new User());
         return "user/add";
     }
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String add(Model model, @ModelAttribute @Valid User user, Errors errors, String verify_password) {
+        model.addAttribute("user", user);
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String processAddUser(@ModelAttribute @Valid User user, Errors errors, Model model) {
-
-       if(errors.hasErrors()) {
-           model.addAttribute("title", "Add User");
-           model.addAttribute("user", user);
-           return "user/add";
-       }
-       UserData.addUser(user);
-       return "redirect:";
+        if (errors.hasErrors()) {
+            return "user/add";
         }
 
-    @RequestMapping(value = "")
-    public static String index(Model model) {
-        List<User> users = UserData.getUsers();
-        model.addAttribute("users", users);
-        return "user/index";
+        if (user.getPassword().equals(verify_password)) {
+            return "user/index";
+        }
+
+        user.setPassword("");
+        model.addAttribute("error_message", "Passwords don't match. Please try again.");
+        return "user/add";
+
     }
     }
 
